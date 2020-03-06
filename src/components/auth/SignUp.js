@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { createUserRequest } from '../../redux/actions/authActions'
 
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
 
 	state = {
 		name: ""
@@ -13,8 +15,12 @@ export default class SignUp extends React.Component {
 	}
 
 	handleSubmit = (e) => {
+		const {createUser} = this.props
+		createUser(this.state.name)
+		this.setState({
+			name: ''
+		})
 		e.preventDefault()
-		console.log(this.state)
 	}
 
 	render() {
@@ -32,3 +38,9 @@ export default class SignUp extends React.Component {
 		);
 	}
 }
+
+const mapDispatchToProps = dispatch => ({
+	createUser: name => dispatch(createUserRequest(name))
+})
+
+export default connect(null, mapDispatchToProps)(SignUp)

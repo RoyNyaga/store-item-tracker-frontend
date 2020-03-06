@@ -4,9 +4,14 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import store from './redux/store'
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import rootReducer from './redux/reducers/rootReducer'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(thunk)
+))
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'))
 
 serviceWorker.unregister()

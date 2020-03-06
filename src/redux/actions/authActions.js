@@ -13,7 +13,7 @@ const createUserFailureAction = errorMessage => ({
   errorMessage
 })
 
-const createUser = (name) => {
+const createUserRequest = (name) => {
   return function (dispatch) {
   	axios.post('http://localhost:3001/registrations', {
   		user: {
@@ -22,13 +22,15 @@ const createUser = (name) => {
   	},
   	{ withCredentials: true }
   	).then(response => {
-  		if (response.data.status == 'created') {
+  		if (response.data.status === 'created') {
   			dispatch(createUserSuccessAction(response.data.user))
+  		} else {
+  			dispatch(createUserFailureAction(response.data.error))
   		}
   	}).catch(error => {
-  		dispatch(createUserFailureAction(response.data.error))
+  		console.log(error)
   	})
   }
 }
 
-export default { createUserSuccessAction, createUserFailureAction, CREATE_USER_SUCCESS, CREATE_USER_FAILURE, createUser }
+export { createUserSuccessAction, createUserFailureAction, CREATE_USER_SUCCESS, CREATE_USER_FAILURE, createUserRequest }
