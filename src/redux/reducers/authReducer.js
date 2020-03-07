@@ -1,8 +1,9 @@
-import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from '../actions/authActions'
+import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions/authActions'
 
 const initailState = {
   user: '',
-  message: ''
+  message: '',
+  signInStatus: 'NOT_LOGGED_IN'
 }
 
 const authReducer = (state = initailState, action) => {
@@ -10,11 +11,24 @@ const authReducer = (state = initailState, action) => {
   	case CREATE_USER_SUCCESS:
   		return {
   			user: action.user,
-  			message: 'User has been created'
-  	}
+  			message: 'User has been created',
+  			signInStatus: 'LOGGED_IN'
+  		}
   	case CREATE_USER_FAILURE:
 	  	return {
-	  		message: action.errorMessage
+	  		message: action.errorMessage,
+	  		signInStatus: 'NOT_LOGGED_IN'
+	  	}
+	  case LOGIN_SUCCESS:
+	  	return {
+	  		user: action.user,
+	  		message: 'Succesfull Login',
+	  		signInStatus: 'LOGGED_IN'
+	  	}
+	  case LOGIN_FAILURE:
+	  	return {
+	  		message: action.errorMessage,
+	  		signInStatus: 'NOT_LOGGED_IN'
 	  	}
 	  default:
 	  	return state
