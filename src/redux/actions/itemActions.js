@@ -11,4 +11,4 @@ const item = (item) => ({
   item
 })
 
-export { ITEM_LIST, ITEM, listItem, item }
+export { ITEM_LIST, ITEM, listItem }
