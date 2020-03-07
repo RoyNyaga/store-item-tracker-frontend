@@ -1,4 +1,4 @@
-import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions/authActions'
+import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE, LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT } from '../actions/authActions'
 
 const initailState = {
   user: '',
@@ -29,6 +29,12 @@ const authReducer = (state = initailState, action) => {
 	  	return {
 	  		message: action.errorMessage,
 	  		signInStatus: 'NOT_LOGGED_IN'
+	  	}
+	  case LOG_OUT:
+	  	return {
+	  		signInStatus: 'NOT_LOGGED_IN',
+	  		user: '',
+	  		message: 'logged out successfully'
 	  	}
 	  default:
 	  	return state

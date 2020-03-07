@@ -3,10 +3,14 @@ import { connect } from 'react-redux'
 import { userSessionRequest } from '../../redux/actions/authActions'
 
 class SignIn extends React.Component {
+	constructor(props){
+		super(props)
 
-	state = {
-		name: ""
+		this.state = {
+			name: ""
+		}
 	}
+
 
 	handleChange = (e) => {
 		this.setState({
@@ -20,6 +24,7 @@ class SignIn extends React.Component {
 		this.setState({
 			name: ""
 		})
+		this.props.history.push('/');
 		e.preventDefault()
 	}
 
@@ -39,9 +44,13 @@ class SignIn extends React.Component {
 	}
 }
 
+const mapStateToProps = state => ({
+  loggedInStatus: state.auth.signInStatus
+})
+
 const mapDispatchToProps = dispatch => ({
 	signInUser: name => dispatch(userSessionRequest(name))
 })
 
-export default connect(null, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
 

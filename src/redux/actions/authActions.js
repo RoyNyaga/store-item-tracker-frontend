@@ -4,6 +4,11 @@ const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS'
 const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE'
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 const LOGIN_FAILURE = 'LOGIN_FAILURE'
+const LOG_OUT = 'LOG_OUT'
+
+const logOutUser = () => ({
+  type: LOG_OUT
+})
 
 const createUserSuccessAction = user => ({
   type: CREATE_USER_SUCCESS,
@@ -27,41 +32,54 @@ const createUserFailureAction = errorMessage => ({
 
 const userSessionRequest = name => {
   return function (dispatch) {
-  	axios.post('http://localhost:3001/sessions', {
-  		user: {
-  			name: name
-  		}
-  	},
-  	{ withCredentials: true }
-  	).then(response => {
-  		if (response.data.logged_in === true) {
-  			dispatch(createUserSessionSuccess(response.data.user))
-  		} else {
-  			dispatch(creatUserSessionFailure(response.data.error))
-  		}
-  	}).catch(error => {
-  		console.log(error)
-  	})
+    axios.post('http://localhost:3001/sessions', {
+      user: {
+        name: name
+      }
+    },
+    { withCredentials: true }
+    ).then(response => {
+      if (response.data.logged_in === true) {
+        dispatch(createUserSessionSuccess(response.data.user))
+      } else {
+        dispatch(creatUserSessionFailure(response.data.error))
+      }
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }
 
 const createUserRequest = (name) => {
   return function (dispatch) {
-  	axios.post('http://localhost:3001/registrations', {
-  		user: {
-  			name: name
-  		}
-  	},
-  	{ withCredentials: true }
-  	).then(response => {
-  		if (response.data.status === 'created') {
-  			dispatch(createUserSuccessAction(response.data.user))
-  		} else {
-  			dispatch(createUserFailureAction(response.data.error))
-  		}
-  	}).catch(error => {
-  		console.log(error)
-  	})
+    axios.post('http://localhost:3001/registrations', {
+      user: {
+        name: name
+      }
+    },
+    { withCredentials: true }
+    ).then(response => {
+      if (response.data.status === 'created') {
+        dispatch(createUserSuccessAction(response.data.user))
+      } else {
+        dispatch(createUserFailureAction(response.data.error))
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+}
+
+const logOutRequest = () => {
+  return function (dispatch) {
+    axios
+      .delete('http://localhost:3001/logout', { withCredentials: true })
+      .then(response => {
+        dispatch(logOutUser())
+      })
+      .catch(error => {
+        console.log('check login error', error)
+      })
   }
 }
 
@@ -72,8 +90,11 @@ export {
   CREATE_USER_FAILURE,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  LOG_OUT,
   createUserRequest,
   userSessionRequest,
   createUserSessionSuccess,
-  creatUserSessionFailure
+  creatUserSessionFailure,
+  logOutUser,
+  logOutRequest
 }

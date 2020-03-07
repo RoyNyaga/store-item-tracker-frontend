@@ -10,14 +10,20 @@ class Navbar extends React.Component {
   }
 
   render () {
-  	console.log(this.props)
+    if (this.props.loggedInStatus === 'LOGGED_IN') {
+      return (
+        <nav className='navbar navbar-light bg-dark'>
+          <Link to='/' className='navbar-brand' href='/'>Marioplan</Link>
+          <SignedInLinks />
+        </nav>
+      )
+    }
     return (
       <nav className='navbar navbar-light bg-dark'>
         <Link to='/' className='navbar-brand' href='/'>Marioplan</Link>
-        <SignedInLinks />
         <SignedOutLinks />
       </nav>
-	  )
+    )
   }
 }
 
