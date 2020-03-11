@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const ITEM_LIST = 'ITEM_LIST'
 const ITEM = 'ITEM'
 
@@ -11,4 +13,37 @@ const item = (item) => ({
   item
 })
 
-export { ITEM_LIST, ITEM, listItem }
+const listItemRequest = () => {
+  return function (dispatch) {
+    axios
+      .get('http://localhost:3001/items', { withCredentials: true })
+      .then(response => {
+        dispatch(listItem(response.data.items))
+      })
+      .catch(error => {
+        console.log('check login error', error)
+      })
+  }
+}
+
+const singleItemRequest = (params) => {
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:3001/items/${params}`, { withCredentials: true })
+      .then(response => {
+        dispatch(item(response.data.items))
+      })
+      .catch(error => {
+        console.log('check login error', error)
+      })
+  }
+}
+
+export {
+  ITEM_LIST,
+  ITEM,
+  listItem,
+  item,
+  listItemRequest,
+  singleItemRequest
+}

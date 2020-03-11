@@ -19,10 +19,10 @@ class SignedInLinks extends React.Component {
     return (
       <ul className='nav'>
         <li className='nav-item'>
-          <button onClick={this.logout} className='nav-link'>Log Out</button>
+          <NavLink to='/items' className='nav-link'>Item</NavLink>
         </li>
         <li className='nav-item'>
-          <NavLink to='/' className='nav-link'>NN</NavLink>
+          <button onClick={this.logout} className='nav-link'>Log Out</button>
         </li>
       </ul>
     )
