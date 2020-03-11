@@ -1,6 +1,6 @@
 import React from 'react'
 import { singleItemRequest } from '../../redux/actions/itemActions'
-import { measurementCreateRequest } from '../../redux/actions/measureActions'
+import { measurementCreateRequest, allMeasurementRequest } from '../../redux/actions/measureActions'
 import ListAllMeasurements from '../measurement/ListAllMeasurements'
 import { connect } from 'react-redux'
 
@@ -22,11 +22,13 @@ class showSingleItem extends React.Component {
     const userId = this.props.user.id
     const itemId = this.props.item.id
     this.props.measureCreate(userId, itemId, this.state.numberOfBooks)
-    e.preventDefault()
+    this.props.requestAllMeasurement()
+    // e.preventDefault()
   }
 
   componentDidMount () {
     this.props.singleItemRequest(this.props.match.params.id)
+    this.props.requestAllMeasurement()
   }
 
   render () {
@@ -52,7 +54,7 @@ class showSingleItem extends React.Component {
                 </form>
               </div>
             </div>
-            <ListAllMeasurements />
+            <ListAllMeasurements measurements={this.props.measurements} />
           </div>
         </div>
       )
@@ -64,12 +66,14 @@ class showSingleItem extends React.Component {
 
 const mapStateToProps = state => ({
   item: state.item.item,
-  user: state.auth.user
+  user: state.auth.user,
+  measurements: state.measure.measurements
 })
 
 const mapDispatchToProps = dispatch => ({
   measureCreate: (user_id, post_id, measurement) => dispatch(measurementCreateRequest(user_id, post_id, measurement)),
-  singleItemRequest: (params) => dispatch(singleItemRequest(params))
+  singleItemRequest: (params) => dispatch(singleItemRequest(params)),
+  requestAllMeasurement: () => dispatch(allMeasurementRequest())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(showSingleItem)

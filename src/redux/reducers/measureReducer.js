@@ -1,7 +1,8 @@
-import { GET_ITEM_MEASUREMENT, CREATE_ITEM_MEASUREMENT } from '../actions/measureActions'
+import { GET_ITEM_MEASUREMENT, CREATE_ITEM_MEASUREMENT, ALL_MEASUREMENT } from '../actions/measureActions'
 
 const initialState = {
-  measurement: ''
+  measurement: '',
+  measurements: []
 }
 
 const measureReducer = (state = initialState, action) => {
@@ -10,6 +11,10 @@ const measureReducer = (state = initialState, action) => {
       return {
         measurement: action.measure
       }
+    case ALL_MEASUREMENT:
+    	return {
+    		measurements: action.measurementList
+    	}
     default:
       return state
   }

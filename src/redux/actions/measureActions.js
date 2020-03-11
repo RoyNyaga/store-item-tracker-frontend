@@ -51,5 +51,6 @@ export {
   createItemMeasurement,
   measurementCreateRequest,
   allMeasurement,
-  allMeasurementRequest
+  allMeasurementRequest,
+  ALL_MEASUREMENT
 }
