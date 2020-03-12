@@ -4,7 +4,7 @@
 ### Installation.
 - clone or download the repository from github.
 - Open your terminal to the repository and run npm install to install dependencies and npm update in case some of the dependencies will need to be updated.
-- Start your server by running npm start which will automatically open a tab on your default browser on port 3000, localhost. In case it doesn't open, go to your browser and type http://localhost:3000 and you will ready to consume our back-end api.
+- Start your server by running npm start which will automatically open a tab on your default browser on port 3000, localhost. In case it doesn't open, go to your browser and type http://localhost:3000 and you will be ready to consume our back-end api.
 
 ## Specifications
 1. The user logs in the app, only by typing the username (a proper authenticated login is not a mandatory requirement, but it is in the nice-to-have list)
