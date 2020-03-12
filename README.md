@@ -1,6 +1,8 @@
 # Store-item-tracking app: Microverse final capstone project for react redux.
 ## This application represents the front-end of rails back-end application which can be access by clicking on this [link](https://github.com/RoyNyaga/microverse-store-items-tracking).
 
+###[live version](https://store-item-tracker-frontend.herokuapp.com)
+
 ### Installation.
 - clone or download the repository from github.
 - Open your terminal to the repository and run npm install to install dependencies and npm update in case some of the dependencies will need to be updated.
