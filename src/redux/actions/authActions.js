@@ -32,7 +32,7 @@ const createUserFailureAction = errorMessage => ({
 
 const userSessionRequest = name => {
   return function (dispatch) {
-    axios.post('http://localhost:3001/sessions', {
+    axios.post('https://store-items-tracking.herokuapp.com/sessions', {
       user: {
         name: name
       }
@@ -52,7 +52,7 @@ const userSessionRequest = name => {
 
 const createUserRequest = (name) => {
   return function (dispatch) {
-    axios.post('http://localhost:3001/registrations', {
+    axios.post('https://store-items-tracking.herokuapp.com/registrations', {
       user: {
         name: name
       }
@@ -73,7 +73,7 @@ const createUserRequest = (name) => {
 const logOutRequest = () => {
   return function (dispatch) {
     axios
-      .delete('http://localhost:3001/logout', { withCredentials: true })
+      .delete('https://store-items-tracking.herokuapp.com/logout', { withCredentials: true })
       .then(response => {
         dispatch(logOutUser())
       })

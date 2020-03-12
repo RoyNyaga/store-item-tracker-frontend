@@ -17,12 +17,12 @@ class SignedInLinks extends React.Component {
 
   render () {
     return (
-      <ul className='nav'>
+      <ul className='navbar-nav ml-auto'>
         <li className='nav-item'>
-          <NavLink to='/items' className='nav-link'>Item</NavLink>
+          <a href='/items' className='nav-link'>Items</a>
         </li>
         <li className='nav-item'>
-          <button onClick={this.logout} className='nav-link'>Log Out</button>
+          <a onClick={this.logout} className='nav-link'>Log Out</a>
         </li>
       </ul>
     )

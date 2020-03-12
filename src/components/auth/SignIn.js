@@ -35,7 +35,7 @@ class SignIn extends React.Component {
 				<h4>SignIn</h4>
 					<fieldset className="form-group">
 						<label>Name</label>
-						<input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter name"/>
+						<input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter name" required/>
 					</fieldset>
 					<button type="submit" className="btn btn-primary">Submit</button>
 				</form>

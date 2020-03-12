@@ -16,7 +16,7 @@ const item = (item) => ({
 const listItemRequest = () => {
   return function (dispatch) {
     axios
-      .get('http://localhost:3001/items', { withCredentials: true })
+      .get('https://store-items-tracking.herokuapp.com/items', { withCredentials: true })
       .then(response => {
         dispatch(listItem(response.data.items))
       })
@@ -29,7 +29,7 @@ const listItemRequest = () => {
 const singleItemRequest = (params) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/items/${params}`, { withCredentials: true })
+      .get(`https://store-items-tracking.herokuapp.com/items/${params}`, { withCredentials: true })
       .then(response => {
         dispatch(item(response.data.items))
       })

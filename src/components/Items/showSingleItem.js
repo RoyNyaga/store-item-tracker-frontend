@@ -44,11 +44,11 @@ class showSingleItem extends React.Component {
             </div>
             <div className='col-md-8'>
               <div className='card text-center'>
-                <h3>Enter the number of books for tracking</h3>
+                <h3>Enter Number to track Progress</h3>
                 <form onSubmit={this.handleSubmit}>
                   <fieldset className="form-group">
                     <label>Name</label>
-                    <input onChange={this.handleChange} type="text" className="form-control" id="numberOfBooks" placeholder="Enter Number"/>
+                    <input onChange={this.handleChange} type="text" className="form-control" id="numberOfBooks" placeholder="Enter Number" className='signing-link' required/>
                   </fieldset>
                   <button type="submit" className="btn btn-primary">Submit</button>
                 </form>

@@ -12,16 +12,28 @@ class Navbar extends React.Component {
   render () {
     if (this.props.loggedInStatus === 'LOGGED_IN') {
       return (
-        <nav className='navbar navbar-light bg-dark'>
-          <Link to='/' className='navbar-brand' href='/'>Marioplan</Link>
-          <SignedInLinks />
+        <nav className='navbar navbar-expand-md fixed-top'>
+          <a className='navbar-brand text-white' href='/'>Item Tracker</a>
+          <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive'>
+            <span className='navbar-toggler-icon'><i className='fas fa-sliders-h text-dark' /></span>
+          </button>
+
+          <div className='collapse navbar-collapse' id='navbarResponsive'>
+            <SignedInLinks />
+          </div>
         </nav>
       )
     }
     return (
-      <nav className='navbar navbar-light bg-dark'>
-        <Link to='/' className='navbar-brand' href='/'>Marioplan</Link>
-        <SignedOutLinks />
+      <nav className='navbar navbar-expand-md fixed-top'>
+        <a className='navbar-brand text-white' href='/'>Item Tracker</a>
+        <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive'>
+          <span className='navbar-toggler-icon'><i className='fas fa-sliders-h text-dark' /></span>
+        </button>
+
+        <div className='collapse navbar-collapse' id='navbarResponsive'>
+          <SignedOutLinks />
+        </div>
       </nav>
     )
   }

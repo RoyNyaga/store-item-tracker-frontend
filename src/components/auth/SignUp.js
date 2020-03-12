@@ -20,6 +20,7 @@ class SignUp extends React.Component {
 		this.setState({
 			name: ''
 		})
+		this.props.history.push('/');
 		e.preventDefault()
 	}
 
@@ -30,7 +31,7 @@ class SignUp extends React.Component {
 				<h4>Sign Up</h4>
 					<fieldset className="form-group">
 						<label>Name</label>
-						<input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter Name"/>
+						<input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter Name" required/>
 					</fieldset>
 					<button type="submit" className="btn btn-primary">Submit</button>
 				</form>

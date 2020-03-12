@@ -36,3 +36,56 @@
     transform: rotate(360deg);
   }
 }
+
+.header-div{
+  background: #4286d0;
+  height: 70vh;
+}
+
+.navbar-expand-md{
+  background: #4286d0;
+}
+
+.nav-link{
+  color: white;
+  font-size: 1.5em;
+}
+
+.signing-link{
+  color: white;
+  font-size: 1.5em;
+  margin: 5px;
+  padding: 10px;
+}
+
+.signing-link:hover{
+  padding-left: 10px;
+  background: #acc7e4;
+  text-decoration: none;
+
+}
+
+footer {
+  background: #35444e;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.footer-icons a{
+  display: inline-block;
+  font-size: 30px;
+  margin: 0 10px 20px 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #f5f3f5;
+  color: #0d1317;
+}
+
+footer p{
+  color: #f5f3f5;
+  font-size: 20px;
+}
+
+#numberOfBooks{
+  width: 90%;
+}

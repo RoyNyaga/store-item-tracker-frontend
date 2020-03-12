@@ -17,7 +17,7 @@ const createItemMeasurement = (measure) => ({
 const allMeasurementRequest = () => {
   return function (dispatch) {
     axios
-      .get('http://localhost:3001/measurements', { withCredentials: true })
+      .get('https://store-items-tracking.herokuapp.com/measurements', { withCredentials: true })
       .then(response => {
         dispatch(allMeasurement(response.data.measurements))
       })
@@ -29,7 +29,7 @@ const allMeasurementRequest = () => {
 
 const measurementCreateRequest = (user_id, item_id, measurement) => {
   return function (dispatch) {
-    axios.post('http://localhost:3001/measurements', {
+    axios.post('https://store-items-tracking.herokuapp.com/measurements', {
       measurement: {
         user_id: user_id,
         item_id: item_id,
