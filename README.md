@@ -1,68 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Store-item-tracking app: Microverse final capstone project for react redux.
+## This application represents the front-end of rails back-end application which can be access by clicking on this [link](https://github.com/RoyNyaga/microverse-store-items-tracking).
 
-## Available Scripts
+### Installation.
+- clone or download the repository from github.
+- Open your terminal to the repository and run npm install to install dependencies and npm update in case some of the dependencies will need to be updated.
+- Start your server by running npm start which will automatically open a tab on your default browser on port 3000, localhost. In case it doesn't open, go to your browser and type http://localhost:3000 and you will ready to consume our back-end api.
 
-In the project directory, you can run:
+## Specifications
+1. The user logs in the app, only by typing the username (a proper authenticated login is not a mandatory requirement, but it is in the nice-to-have list)
+2. The user is presented with a list of things that can be measured: left bicep, waist, hips, etc.
+3. The user selects a thing to measure and is presented with a page to introduce the measurement (and timestamp)
+4. The user can access a list of things with measurements and check the progress of it within time
 
-### `npm start`
+## Technologies
+-Eslint
+-javascript ES6
+-React
+-Redux
+-React-redux
+-Axios
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Author
+- [Nyaga Andre Roy](https://github.com/RoyNyaga/)
+- nyagaandreroy@gmail.com
+-237 671 172 775
