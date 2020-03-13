@@ -1,4 +1,5 @@
 import React from 'react'
+import Proptypes from 'prop-types'
 
 class Item extends React.Component {
   constructor (props) {
@@ -7,7 +8,6 @@ class Item extends React.Component {
 
   render () {
     const { itemObject } = this.props
-    console.log(this.props)
     return (
       <div className='col-md-4'>
         <div className='card text-center'>
@@ -20,6 +20,10 @@ class Item extends React.Component {
       </div>
     )
   }
+}
+
+Item.propTypes = {
+  itemObject: Proptypes.instanceOf(Object).isRequired
 }
 
 export default Item

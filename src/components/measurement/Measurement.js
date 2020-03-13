@@ -1,4 +1,5 @@
 import React from 'react'
+import Proptypes from 'prop-types'
 
 class Measurement extends React.Component {
   constructor (props) {
@@ -6,7 +7,7 @@ class Measurement extends React.Component {
   }
 
   render () {
-  	const { measureObject } = this.props
+    const { measureObject } = this.props
     return (
       <div className='col-md-3'>
         <div className='card text-center'>
@@ -16,8 +17,12 @@ class Measurement extends React.Component {
           </div>
         </div>
       </div>
-  	)
+    )
   }
+}
+
+Measurement.propTypes = {
+  itemObject: Proptypes.instanceOf(Object).isRequired
 }
 
 export default Measurement
