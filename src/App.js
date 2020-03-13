@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { createUserSessionSuccess, creatUserSessionFailure } from './redux/actions/authActions'
 import axios from 'axios'
 import SignedInLinks from './components/layouts/SignedInLinks'
+import Footer from './components/layouts/Footer'
 import './App.css'
 
 class App extends React.Component {
@@ -71,14 +72,7 @@ class App extends React.Component {
             <Route exact path='/item/:id' component={showSingleItem} />
           </Switch>
 
-          <footer>
-            <div className='footer-icons'>
-              <a href='/signin'>Login</a>
-              <a href='/signup'>Sign up</a>
-            </div>
-            <p className='copy-right'>Copyright&copy;FastAndFaster.All rights reserved</p>
-          </footer>
-
+          <Footer />
         </div>
       </BrowserRouter>
     )
