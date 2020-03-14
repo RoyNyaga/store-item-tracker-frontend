@@ -7,20 +7,20 @@ class ListAllMeasurements extends React.Component {
   }
 
   render () {
-  	const { measurements } = this.props
-  	if (measurements) {
-  		return (
-    		<div className='container-fluid'>
+    const { measurements } = this.props
+    if (measurements) {
+      return (
+        <div className='container-fluid'>
           <div className='row'>
         {measurements.map(measure => (
               <Measurement key={measure.id} measureObject={measure} />
-	        ))}
+          ))}
       </div>
         </div>
       )
-  	} else {
-  		return <div>Empty</div>
-  	}
+    } else {
+      return <div>Empty</div>
+    }
   }
 }
 

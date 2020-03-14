@@ -7,11 +7,8 @@ export default class Footer extends React.Component {
 
   render () {
     return (
-      <footer>
-        <div className='footer-icons'>
-          <a href='/signin'>Login</a>
-          <a href='/signup'>Sign up</a>
-        </div>
+      <footer className='mt-5'>
+        <div className='footer-icons mt-5' />
         <p className='copy-right'>Copyright&copy;FastAndFaster.All rights reserved</p>
       </footer>
     )

@@ -14,7 +14,8 @@ class ItemList extends React.Component {
 
   render () {
     const { items } = this.props
-    if (items) {
+    const { loggedInStatus } = this.props
+    if (items && loggedInStatus === 'LOGGED_IN') {
       return (
         <div className='row'>
           {
@@ -34,7 +35,8 @@ class ItemList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.item.items
+  items: state.item.items,
+  loggedInStatus: state.auth.signInStatus
 })
 
 const mapDispatchToProps = dispatch => ({

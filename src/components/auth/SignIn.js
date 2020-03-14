@@ -24,9 +24,21 @@ class SignIn extends React.Component {
 		this.setState({
 			name: ""
 		})
-		this.props.history.push('/');
+		this.props.history.push('/items');
 		e.preventDefault()
 	}
+
+	redirectToHomePage(){
+		const{loggedInStatus} = this.props
+		if(loggedInStatus === "LOGGED_IN"){
+			this.props.history.push('/items');
+    	}
+	}
+
+	componentDidMount () {
+    	this.redirectToHomePage()
+    	console.log(this.props.loggedInStatus)
+ 	}
 
 	render() {
 		return (

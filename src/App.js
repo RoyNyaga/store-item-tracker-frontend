@@ -8,7 +8,6 @@ import showSingleItem from './components/Items/showSingleItem'
 import { connect } from 'react-redux'
 import { createUserSessionSuccess, creatUserSessionFailure } from './redux/actions/authActions'
 import axios from 'axios'
-import SignedInLinks from './components/layouts/SignedInLinks'
 import Footer from './components/layouts/Footer'
 import './App.css'
 
@@ -24,7 +23,6 @@ class App extends React.Component {
       .then(response => {
         if (response.data.logged_in === true && this.props.loggedInStatus === 'NOT_LOGGED_IN') {
           createUserSession(response.data.user)
-          console.log(response.data.logged_in)
         } else if (response.data.logged_in !== true && this.props.loggedInStatus === 'LOGGED_IN') {
           cancelUserSession(response.data.error)
         }
@@ -35,6 +33,7 @@ class App extends React.Component {
 
   componentDidMount () {
     this.checkLoginStatus()
+    console.log(this.props.loggedInStatus)
   }
 
   loginMessage (loggedInStatus) {
@@ -53,7 +52,7 @@ class App extends React.Component {
 
   render () {
     const { loggedInStatus } = this.props
-    console.log(this.props)
+    console.log(loggedInStatus)
     return (
       <BrowserRouter>
         <div className='App container-fluid'>
