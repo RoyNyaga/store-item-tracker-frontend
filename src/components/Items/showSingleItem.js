@@ -33,7 +33,8 @@ class showSingleItem extends React.Component {
 
   render () {
     const { item } = this.props
-    if (item) {
+    const { loggedInStatus } = this.props
+    if (item && loggedInStatus === 'LOGGED_IN') {
       return (
         <div className='container'>
           <div className='row'>
@@ -59,7 +60,7 @@ class showSingleItem extends React.Component {
         </div>
       )
     } else {
-      return (<div>here we are</div>)
+      return (<div></div>)
     }
   }
 }
@@ -67,7 +68,8 @@ class showSingleItem extends React.Component {
 const mapStateToProps = state => ({
   item: state.item.item,
   user: state.auth.user,
-  measurements: state.measure.measurements
+  measurements: state.measure.measurements,
+  loggedInStatus: state.auth.signInStatus
 })
 
 const mapDispatchToProps = dispatch => ({

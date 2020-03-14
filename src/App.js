@@ -50,6 +50,17 @@ class App extends React.Component {
     }
   }
 
+  displayWhenLoggedOut (loggedInStatus) {
+    if (loggedInStatus === 'NOT_LOGGED_IN') {
+      return <div className='header-div d-flex justify-content-center align-items-center'>
+        <div className='inner-header-div'>
+          <h3>Welcome to Item Tracker</h3>
+          {this.loginMessage(loggedInStatus)}
+        </div>
+             </div>
+    }
+  }
+
   render () {
     const { loggedInStatus } = this.props
     console.log(loggedInStatus)
@@ -57,13 +68,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div className='App container-fluid'>
           <Navbar />
-          <div className='header-div d-flex justify-content-center align-items-center'>
-            <div className='inner-header-div'>
-              <h3>Welcome to Item Tracker</h3>
-              {this.loginMessage(loggedInStatus)}
-            </div>
-          </div>
-
+          {this.displayWhenLoggedOut(loggedInStatus)}
           <Switch>
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
