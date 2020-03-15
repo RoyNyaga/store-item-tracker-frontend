@@ -4,7 +4,7 @@ import { measurementCreateRequest, allMeasurementRequest } from '../../redux/act
 import ListAllMeasurements from '../measurement/ListAllMeasurements'
 import { connect } from 'react-redux'
 
-class showSingleItem extends React.Component {
+class ShowSingleItem extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -22,8 +22,7 @@ class showSingleItem extends React.Component {
     const userId = this.props.user.id
     const itemId = this.props.item.id
     this.props.measureCreate(userId, itemId, this.state.numberOfBooks)
-    this.props.requestAllMeasurement()
-    // e.preventDefault()
+    e.preventDefault()
   }
 
   componentDidMount () {
@@ -34,10 +33,11 @@ class showSingleItem extends React.Component {
   render () {
     const { item } = this.props
     const { loggedInStatus } = this.props
+    this.props.requestAllMeasurement()
     if (item && loggedInStatus === 'LOGGED_IN') {
       return (
-        <div className='container'>
-          <div className='row'>
+        <div className='container mt-5'>
+          <div className='row mt-5'>
             <div className='col-md-4'>
               <div className='card text-center'>
                 <img className='card-img-top' src={item.photo} alt='Card image cap' />
@@ -55,7 +55,7 @@ class showSingleItem extends React.Component {
                 </form>
               </div>
             </div>
-            <ListAllMeasurements measurements={this.props.measurements} />
+            <ListAllMeasurements itemId={this.props.match.params.id} measurements={this.props.measurements} />
           </div>
         </div>
       )
@@ -78,4 +78,4 @@ const mapDispatchToProps = dispatch => ({
   requestAllMeasurement: () => dispatch(allMeasurementRequest())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(showSingleItem)
+export default connect(mapStateToProps, mapDispatchToProps)(ShowSingleItem)

@@ -5,10 +5,10 @@ const SignedOutLinks = () => {
   return (
     <ul className='navbar-nav ml-auto'>
       <li className='nav-item'>
-        <a href='/signup' className='nav-link'>Signup</a>
+        <a href='/signup' className='nav-link'>SignUp</a>
       </li>
       <li className='nav-item'>
-        <a href='/signin' className='nav-link'>Login</a>
+        <a href='/signin' className='nav-link'>SignIn</a>
       </li>
     </ul>
   )

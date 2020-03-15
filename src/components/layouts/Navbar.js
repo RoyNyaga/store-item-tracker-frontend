@@ -12,7 +12,7 @@ class Navbar extends React.Component {
   render () {
     if (this.props.loggedInStatus === 'LOGGED_IN') {
       return (
-        <nav className='navbar navbar-expand-md fixed-top'>
+        <nav className='navbar navbar-expand-md fixed-top mb-5'>
           <a className='navbar-brand text-white' href='/'>Item Tracker</a>
           <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive'>
             <span className='navbar-toggler-icon'><i className='fas fa-sliders-h text-dark' /></span>

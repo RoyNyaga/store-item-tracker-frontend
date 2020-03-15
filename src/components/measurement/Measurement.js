@@ -22,7 +22,7 @@ class Measurement extends React.Component {
 }
 
 Measurement.propTypes = {
-  itemObject: Proptypes.instanceOf(Object).isRequired
+  measureObject: Proptypes.instanceOf(Object).isRequired
 }
 
 export default Measurement

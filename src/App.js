@@ -4,7 +4,7 @@ import Navbar from './components/layouts/Navbar'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import ItemList from './components/Items/ItemList'
-import showSingleItem from './components/Items/showSingleItem'
+import ShowSingleItem from './components/Items/ShowSingleItem'
 import { connect } from 'react-redux'
 import { createUserSessionSuccess, creatUserSessionFailure } from './redux/actions/authActions'
 import axios from 'axios'
@@ -33,7 +33,6 @@ class App extends React.Component {
 
   componentDidMount () {
     this.checkLoginStatus()
-    console.log(this.props.loggedInStatus)
   }
 
   loginMessage (loggedInStatus) {
@@ -63,7 +62,6 @@ class App extends React.Component {
 
   render () {
     const { loggedInStatus } = this.props
-    console.log(loggedInStatus)
     return (
       <BrowserRouter>
         <div className='App container-fluid'>
@@ -73,7 +71,7 @@ class App extends React.Component {
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/items' component={ItemList} />
-            <Route exact path='/item/:id' component={showSingleItem} />
+            <Route exact path='/item/:id' component={ShowSingleItem} />
           </Switch>
 
           <Footer />

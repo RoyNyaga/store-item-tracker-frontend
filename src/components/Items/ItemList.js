@@ -17,7 +17,7 @@ class ItemList extends React.Component {
     const { loggedInStatus } = this.props
     if (items && loggedInStatus === 'LOGGED_IN') {
       return (
-        <div className='row'>
+        <div className='row mt-5'>
           {
             items.map(item => (
               <Item
