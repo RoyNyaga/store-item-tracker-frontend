@@ -22,6 +22,7 @@ class ShowSingleItem extends React.Component {
     const userId = this.props.user.id
     const itemId = this.props.item.id
     this.props.measureCreate(userId, itemId, this.state.numberOfBooks)
+    const input = document.querySelector("#numberOfBooks").value = ""
     e.preventDefault()
   }
 

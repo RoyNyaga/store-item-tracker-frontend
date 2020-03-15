@@ -49,9 +49,18 @@ class App extends React.Component {
     }
   }
 
+  displayWhenLoggedIn (loggedInStatus) {
+    if (loggedInStatus === 'LOGGED_IN') {
+      return <div className='jumbotron'>
+        <h1 className='display-3'>Store Item Tracker</h1>
+
+      </div>
+    }
+  }
+
   displayWhenLoggedOut (loggedInStatus) {
     if (loggedInStatus === 'NOT_LOGGED_IN') {
-      return <div className='header-div d-flex justify-content-center align-items-center'>
+      return <div className='header-div d-flex justify-content-center align-items-center mb-5'>
         <div className='inner-header-div'>
           <h3>Welcome to Item Tracker</h3>
           {this.loginMessage(loggedInStatus)}
@@ -67,6 +76,7 @@ class App extends React.Component {
         <div className='App container-fluid'>
           <Navbar />
           {this.displayWhenLoggedOut(loggedInStatus)}
+          {this.displayWhenLoggedIn(loggedInStatus)}
           <Switch>
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
