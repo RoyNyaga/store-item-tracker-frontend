@@ -1,23 +1,23 @@
-import { ITEM_LIST, ITEM } from '../actions/itemActions'
+import { ITEM_LIST, ITEM } from '../actions/itemActions';
 
 const initialState = {
   items: [],
-  item: null
-}
+  item: null,
+};
 
 const itemReducer = (state = initialState, action) => {
   switch (action.type) {
     case ITEM_LIST:
       return {
-        items: action.items
-      }
+        items: action.items,
+      };
     case ITEM:
       return {
-        item: action.item
-      }
+        item: action.item,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default itemReducer
+export default itemReducer;

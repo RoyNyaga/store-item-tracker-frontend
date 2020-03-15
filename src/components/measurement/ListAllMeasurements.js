@@ -1,31 +1,28 @@
-import React from 'react'
-import Measurement from './Measurement'
+import React from 'react';
+import Measurement from './Measurement';
 
 class ListAllMeasurements extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
   }
 
-  render () {
-    const { measurements } = this.props
-    const { itemId } = this.props
+  render() {
+    const { measurements } = this.props;
+    const { itemId } = this.props;
     if (measurements) {
-      const filteredMeasurements = measurements.filter(function (m) {
-        return m.item_id == itemId
-      })
+      const filteredMeasurements = measurements.filter(m => m.item_id == itemId);
       return (
-        <div className='container-fluid'>
-          <div className='row'>
+        <div className="container-fluid">
+          <div className="row">
             {filteredMeasurements.map(measure => (
               <Measurement key={measure.id} measureObject={measure} />
             ))}
           </div>
         </div>
-      )
-    } else {
-      return <div>Empty</div>
+      );
     }
+    return <div>Empty</div>;
   }
 }
 
-export default ListAllMeasurements
+export default ListAllMeasurements;

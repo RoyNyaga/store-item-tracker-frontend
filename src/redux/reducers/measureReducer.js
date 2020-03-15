@@ -1,23 +1,23 @@
-import { GET_ITEM_MEASUREMENT, CREATE_ITEM_MEASUREMENT, ALL_MEASUREMENT } from '../actions/measureActions'
+import { GET_ITEM_MEASUREMENT, CREATE_ITEM_MEASUREMENT, ALL_MEASUREMENT } from '../actions/measureActions';
 
 const initialState = {
   measurement: '',
-  measurements: []
-}
+  measurements: [],
+};
 
 const measureReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_ITEM_MEASUREMENT:
       return {
-        measurement: action.measure
-      }
+        measurement: action.measure,
+      };
     case ALL_MEASUREMENT:
     	return {
-    		measurements: action.measurementList
-    	}
+    		measurements: action.measurementList,
+    	};
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default measureReducer
+export default measureReducer;

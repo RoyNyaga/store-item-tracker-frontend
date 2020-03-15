@@ -1,23 +1,23 @@
-import React from 'react'
-import Item from './Item'
-import { connect } from 'react-redux'
-import { listItemRequest } from '../../redux/actions/itemActions'
+import React from 'react';
+import { connect } from 'react-redux';
+import Item from './Item';
+import { listItemRequest } from '../../redux/actions/itemActions';
 
 class ItemList extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
   }
 
-  componentDidMount () {
-    this.props.itemsListRequest()
+  componentDidMount() {
+    this.props.itemsListRequest();
   }
 
-  render () {
-    const { items } = this.props
-    const { loggedInStatus } = this.props
+  render() {
+    const { items } = this.props;
+    const { loggedInStatus } = this.props;
     if (items && loggedInStatus === 'LOGGED_IN') {
       return (
-        <div className='row mt-5'>
+        <div className="row mt-5">
           {
             items.map(item => (
               <Item
@@ -27,20 +27,19 @@ class ItemList extends React.Component {
             ))
           }
         </div>
-      )
-    } else {
-      return <div />
+      );
     }
+    return <div />;
   }
 }
 
 const mapStateToProps = state => ({
   items: state.item.items,
-  loggedInStatus: state.auth.signInStatus
-})
+  loggedInStatus: state.auth.signInStatus,
+});
 
 const mapDispatchToProps = dispatch => ({
-  itemsListRequest: () => dispatch(listItemRequest())
-})
+  itemsListRequest: () => dispatch(listItemRequest()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemList)
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
