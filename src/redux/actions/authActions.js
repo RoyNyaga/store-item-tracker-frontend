@@ -42,8 +42,6 @@ const userSessionRequest = name => function (dispatch) {
     } else {
       dispatch(creatUserSessionFailure(response.data.error));
     }
-  }).catch(error => {
-    console.log(error);
   });
 };
 
@@ -59,8 +57,6 @@ const createUserRequest = name => function (dispatch) {
     } else {
       dispatch(createUserFailureAction(response.data.error));
     }
-  }).catch(error => {
-    console.log(error);
   });
 };
 
@@ -68,10 +64,9 @@ const logOutRequest = () => function (dispatch) {
   axios
     .delete('https://store-items-tracking.herokuapp.com/logout', { withCredentials: true })
     .then(response => {
-      dispatch(logOutUser());
-    })
-    .catch(error => {
-      console.log('check login error', error);
+      if (response.data.status === 200) {
+        dispatch(logOutUser());
+      }
     });
 };
 

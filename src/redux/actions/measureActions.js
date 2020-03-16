@@ -19,24 +19,19 @@ const allMeasurementRequest = () => function (dispatch) {
     .get('https://store-items-tracking.herokuapp.com/measurements', { withCredentials: true })
     .then(response => {
       dispatch(allMeasurement(response.data.measurements));
-    })
-    .catch(error => {
-      console.log('check login error', error);
     });
 };
 
-const measurementCreateRequest = (user_id, item_id, measurement) => function (dispatch) {
+const measurementCreateRequest = (userId, itemId, measurement) => function (dispatch) {
   axios.post('https://store-items-tracking.herokuapp.com/measurements', {
     measurement: {
-      user_id,
-      item_id,
+      user_id: userId,
+      item_id: itemId,
       measurement,
     },
   },
   { withCredentials: true }).then(response => {
     dispatch(createItemMeasurement(response.data.measurement));
-  }).catch(error => {
-    console.log(error);
   });
 };
 

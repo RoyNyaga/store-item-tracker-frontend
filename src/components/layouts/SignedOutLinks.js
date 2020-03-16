@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 const SignedOutLinks = () => (
   <ul className="navbar-nav ml-auto">

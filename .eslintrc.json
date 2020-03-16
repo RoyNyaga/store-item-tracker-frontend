@@ -23,6 +23,8 @@
       "class-methods-use-this": "off",
       "react/prop-types": "off",
       "jsx-a11y/label-has-associated-control": "off",
+      "eqeqeq": "off",
+      "no-param-reassign": "off",
       "arrow-parens": ["error", "as-needed"]
     }
   }

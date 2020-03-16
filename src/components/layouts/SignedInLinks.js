@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOutRequest } from '../../redux/actions/authActions';
 
@@ -11,8 +10,8 @@ class SignedInLinks extends React.Component {
   }
 
   logout() {
-    const { log_out_user } = this.props;
-    log_out_user();
+    const { logOutUser } = this.props;
+    logOutUser();
   }
 
   render() {
@@ -22,7 +21,7 @@ class SignedInLinks extends React.Component {
           <a href="/items" className="nav-link">Items</a>
         </li>
         <li className="nav-item">
-          <a onClick={this.logout} className="nav-link">Log Out</a>
+          <button type="button" onClick={this.logout} className="nav-link text-dark">Log Out</button>
         </li>
       </ul>
     );
@@ -30,7 +29,7 @@ class SignedInLinks extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  log_out_user: () => dispatch(logOutRequest()),
+  logOutUser: () => dispatch(logOutRequest()),
 });
 
 export default connect(null, mapDispatchToProps)(SignedInLinks);

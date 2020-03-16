@@ -18,9 +18,6 @@ const listItemRequest = () => function (dispatch) {
     .get('https://store-items-tracking.herokuapp.com/items', { withCredentials: true })
     .then(response => {
       dispatch(listItem(response.data.items));
-    })
-    .catch(error => {
-      console.log('check login error', error);
     });
 };
 
@@ -29,9 +26,6 @@ const singleItemRequest = params => function (dispatch) {
     .get(`https://store-items-tracking.herokuapp.com/items/${params}`, { withCredentials: true })
     .then(response => {
       dispatch(item(response.data.items));
-    })
-    .catch(error => {
-      console.log('check login error', error);
     });
 };
 

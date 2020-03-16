@@ -32,7 +32,6 @@ class ItemList extends React.Component {
 }
 
 ItemList.propTypes = {
-  items: Proptypes.arrayOf.isRequired,
   loggedInStatus: Proptypes.string.isRequired,
   itemsListRequest: Proptypes.func.isRequired,
 };
