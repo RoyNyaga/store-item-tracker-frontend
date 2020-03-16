@@ -21,6 +21,8 @@
       "import/no-named-as-default": "off",
       "import/no-named-as-default-member": "off",
       "class-methods-use-this": "off",
+      "react/prop-types": "off",
+      "jsx-a11y/label-has-associated-control": "off",
       "arrow-parens": ["error", "as-needed"]
     }
   }
