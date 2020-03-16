@@ -1,47 +1,53 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { createUserRequest } from '../../redux/actions/authActions'
+import { connect } from 'react-redux';
+import { createUserRequest } from '../../redux/actions/authActions';
 
 class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
 
-	state = {
-		name: ""
-	}
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-	handleChange = (e) => {
-		this.setState({
-			[e.target.id]: e.target.value 
-		});
-	}
+  handleChange(event) {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
 
-	handleSubmit = (e) => {
-		const {createUser} = this.props
-		createUser(this.state.name)
-		this.setState({
-			name: ''
-		})
-		this.props.history.push('/');
-		e.preventDefault()
-	}
+  handleSubmit(event) {
+    const { createUser, history } = this.props;
+    const { name } = this.state;
+    createUser(name);
+    this.setState({
+      name: '',
+    });
+    history.push('/items');
+    event.preventDefault();
+  }
 
-	render() {
-		return (
-			<div className="container">
-				<form onSubmit={this.handleSubmit}>
-				<h4>Sign Up</h4>
-					<fieldset className="form-group">
-						<label>Name</label>
-						<input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter Name" required/>
-					</fieldset>
-					<button type="submit" className="btn btn-primary">Submit</button>
-				</form>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className="container">
+        <form onSubmit={this.handleSubmit}>
+          <h4>Sign Up</h4>
+          <fieldset className="form-group">
+            <label>Name</label>
+            <input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter Name" required />
+          </fieldset>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => ({
-	createUser: name => dispatch(createUserRequest(name))
-})
+  createUser: name => dispatch(createUserRequest(name)),
+});
 
-export default connect(null, mapDispatchToProps)(SignUp)
+export default connect(null, mapDispatchToProps)(SignUp);

@@ -1,68 +1,68 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { userSessionRequest } from '../../redux/actions/authActions'
+import { connect } from 'react-redux';
+import { userSessionRequest } from '../../redux/actions/authActions';
 
 class SignIn extends React.Component {
-	constructor(props){
-		super(props)
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			name: ""
-		}
-	}
+    this.state = {
+      name: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  componentDidMount() {
+    this.redirectToHomePage();
+  }
 
-	handleChange = (e) => {
-		this.setState({
-			[e.target.id]: e.target.value 
-		});
-	}
+  handleChange(event) {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
 
-	handleSubmit = (e) => {
-		const{signInUser} = this.props
-		signInUser(this.state.name)
-		this.setState({
-			name: ""
-		})
-		this.props.history.push('/items');
-		e.preventDefault()
-	}
+  handleSubmit(event) {
+    const { signInUser, history } = this.props;
+    const { name } = this.state;
+    signInUser(name);
+    this.setState({
+      name: '',
+    });
+    history.push('/items');
+    event.preventDefault();
+  }
 
-	redirectToHomePage(){
-		const{loggedInStatus} = this.props
-		if(loggedInStatus === "LOGGED_IN"){
-			this.props.history.push('/items');
-    	}
-	}
+  redirectToHomePage() {
+    const { loggedInStatus, history } = this.props;
+    if (loggedInStatus === 'LOGGED_IN') {
+      history.push('/items');
+    }
+  }
 
-	componentDidMount () {
-    	this.redirectToHomePage()
-    	console.log(this.props.loggedInStatus)
- 	}
-
-	render() {
-		return (
-			<div className="container">
-				<form onSubmit={this.handleSubmit}>
-				<h4>SignIn</h4>
-					<fieldset className="form-group">
-						<label>Name</label>
-						<input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter name" required/>
-					</fieldset>
-					<button type="submit" className="btn btn-primary">Submit</button>
-				</form>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className="container">
+        <form onSubmit={this.handleSubmit}>
+          <h4>SignIn</h4>
+          <fieldset className="form-group">
+            <label>Name</label>
+            <input onChange={this.handleChange} type="text" className="form-control" id="name" placeholder="Enter name" required />
+          </fieldset>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-  loggedInStatus: state.auth.signInStatus
-})
+  loggedInStatus: state.auth.signInStatus,
+});
 
 const mapDispatchToProps = dispatch => ({
-	signInUser: name => dispatch(userSessionRequest(name))
-})
+  signInUser: name => dispatch(userSessionRequest(name)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
-
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
