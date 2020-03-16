@@ -24,7 +24,10 @@
       "react/prop-types": "off",
       "jsx-a11y/label-has-associated-control": "off",
       "eqeqeq": "off",
+      "no-console": "off",
       "no-param-reassign": "off",
+      "jsx-a11y/label-has-for": "off",
+      "func-names": "off",
       "arrow-parens": ["error", "as-needed"]
     }
   }
