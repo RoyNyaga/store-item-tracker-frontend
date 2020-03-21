@@ -43,7 +43,7 @@ class ShowSingleItem extends React.Component {
     const {
       loggedInStatus, requestAllMeasurement, match, measurements
     } = this.props
-    requestAllMeasurement()
+    // requestAllMeasurement()
     if (item && loggedInStatus === 'LOGGED_IN') {
       return (
         <div className='container mt-5'>
