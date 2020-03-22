@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import Proptypes from 'prop-types'
 import Navbar from './components/layouts/Navbar'
 import SignIn from './components/auth/SignIn'
@@ -13,22 +12,6 @@ import Footer from './components/layouts/Footer'
 import './App.css'
 
 class App extends React.Component {
-  // checkLoginStatus () {
-  //   const { createUserSession, cancelUserSession, loggedInStatus } = this.props
-
-  //   axios
-  //     .get('https://store-items-tracking.herokuapp.com/logged_in', { withCredentials: true })
-  //     .then(response => {
-  //       if (response.data.logged_in === true && loggedInStatus === 'NOT_LOGGED_IN') {
-  //         createUserSession(response.data.user)
-  //       } else if (response.data.logged_in !== true && loggedInStatus === 'LOGGED_IN') {
-  //         cancelUserSession(response.data.error)
-  //       }
-  //     }).catch(error => {
-  //       document.querySelectory('#error-message').innerHtml = error
-  //     })
-  // }
-
   loginMessage (loggedInStatus) {
     if (loggedInStatus === 'NOT_LOGGED_IN') {
       return (

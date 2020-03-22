@@ -28,7 +28,6 @@ class ShowSingleItem extends React.Component {
   }
 
   handleSubmit (event) {
-    event.preventDefault()
     const { user, item, measureCreate } = this.props
     const { numberOfBooks } = this.state
     const userId = user.id
@@ -41,9 +40,8 @@ class ShowSingleItem extends React.Component {
   render () {
     const { item } = this.props
     const {
-      loggedInStatus, requestAllMeasurement, match, measurements
+      loggedInStatus, match, measurements
     } = this.props
-    // requestAllMeasurement()
     if (item && loggedInStatus === 'LOGGED_IN') {
       return (
         <div className='container mt-5'>
