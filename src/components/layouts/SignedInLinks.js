@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
 import { logOutRequest } from '../../redux/actions/authActions';
 
 class SignedInLinks extends React.Component {
@@ -27,6 +28,10 @@ class SignedInLinks extends React.Component {
     );
   }
 }
+
+SignedInLinks.propTypes = {
+  logOutUser: Proptypes.func.isRequired,
+};
 
 const mapDispatchToProps = dispatch => ({
   logOutUser: () => dispatch(logOutRequest()),

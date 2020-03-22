@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
 import { createUserRequest } from '../../redux/actions/authActions';
 
 class SignUp extends React.Component {
@@ -45,6 +46,10 @@ class SignUp extends React.Component {
     );
   }
 }
+
+SignUp.propTypes = {
+  createUser: Proptypes.func.isRequired,
+};
 
 const mapDispatchToProps = dispatch => ({
   createUser: name => dispatch(createUserRequest(name)),

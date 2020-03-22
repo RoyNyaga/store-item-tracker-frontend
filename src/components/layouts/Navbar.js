@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Proptypes } from 'prop-types';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
@@ -31,6 +32,10 @@ const Navbar = props => {
       </div>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  loggedInStatus: Proptypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
