@@ -27,7 +27,7 @@ class SignUp extends React.Component {
     this.setState({
       name: '',
     });
-    history.push('/items');
+    history.push('/');
     event.preventDefault();
   }
 

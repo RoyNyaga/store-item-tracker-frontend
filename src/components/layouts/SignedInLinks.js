@@ -19,7 +19,7 @@ class SignedInLinks extends React.Component {
     return (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <a href="/items" className="nav-link">Items</a>
+          <a href="/" className="nav-link">Items</a>
         </li>
         <li className="nav-item">
           <button type="button" onClick={this.logout} className="nav-link text-dark">Log Out</button>
