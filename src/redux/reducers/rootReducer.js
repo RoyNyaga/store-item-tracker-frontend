@@ -1,20 +1,20 @@
-import { combineReducers } from 'redux'
-import authReducer from './authReducer'
-import itemReducer from './itemReducer'
-import measureReducer from './measureReducer'
-import { persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import authReducer from './authReducer';
+import itemReducer from './itemReducer';
+import measureReducer from './measureReducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['item', 'auth', 'measure']
-}
+  whitelist: ['item', 'auth', 'measure'],
+};
 
 const rootReducer = combineReducers({
   item: itemReducer,
   auth: authReducer,
-  measure: measureReducer
-})
+  measure: measureReducer,
+});
 
-export default persistReducer(persistConfig, rootReducer)
+export default persistReducer(persistConfig, rootReducer);
