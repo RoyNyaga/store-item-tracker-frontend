@@ -1,22 +1,23 @@
-import React from 'react';
-import Measurement from './Measurement';
+import React from 'react'
+import { Proptypes } from 'prop-types'
+import Measurement from './Measurement'
 
 const ListAllMeasurements = props => {
-  const { itemId, measurements } = props;
+  const { itemId, measurements } = props
 
   if (measurements) {
-    const filteredMeasurements = measurements.filter(m => m.item_id == itemId);
+    const filteredMeasurements = measurements.filter(m => m.item_id == itemId)
     return (
-      <div className="container-fluid">
-        <div className="row">
+      <div className='container-fluid'>
+        <div className='row'>
           {filteredMeasurements.map(measure => (
             <Measurement key={measure.id} measureObject={measure} />
           ))}
         </div>
       </div>
-    );
+    )
   }
-  return <div>Empty</div>;
-};
+  return <div>Empty</div>
+}
 
-export default ListAllMeasurements;
+export default ListAllMeasurements
