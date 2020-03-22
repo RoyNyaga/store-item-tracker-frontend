@@ -21,7 +21,7 @@
       "import/no-named-as-default": "off",
       "import/no-named-as-default-member": "off",
       "class-methods-use-this": "off",
-      "react/prop-types": "off",
+      // "react/prop-types": "off",
       "import/no-extraneous-dependencies": "off",
       "react/require-default-props": "off",
       "jsx-a11y/label-has-associated-control": "off",

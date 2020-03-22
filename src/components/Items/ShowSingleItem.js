@@ -1,74 +1,76 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Proptypes from 'prop-types'
-import { singleItemRequest } from '../../redux/actions/itemActions'
-import { measurementCreateRequest, allMeasurementRequest } from '../../redux/actions/measureActions'
-import ListAllMeasurements from '../measurement/ListAllMeasurements'
+import React from 'react';
+import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
+import { singleItemRequest } from '../../redux/actions/itemActions';
+import { measurementCreateRequest, allMeasurementRequest } from '../../redux/actions/measureActions';
+import ListAllMeasurements from '../measurement/ListAllMeasurements';
 
 class ShowSingleItem extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      numberOfBooks: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+      numberOfBooks: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount () {
-    const { match, singleItemRequest, requestAllMeasurement } = this.props
-    singleItemRequest(match.params.id)
-    requestAllMeasurement()
+  componentDidMount() {
+    const { match, singleItemRequest, requestAllMeasurement } = this.props;
+    singleItemRequest(match.params.id);
+    requestAllMeasurement();
   }
 
-  handleChange (event) {
+  handleChange(event) {
     this.setState({
-      [event.target.id]: event.target.value
-    })
+      [event.target.id]: event.target.value,
+    });
   }
 
-  handleSubmit (event) {
-    const { user, item, measureCreate, requestAllMeasurement } = this.props
-    const { numberOfBooks } = this.state
-    const userId = user.id
-    const itemId = item.id
-    measureCreate(userId, itemId, numberOfBooks)
-    const input = document.querySelector('#numberOfBooks')
-    input.value = ''
-    setTimeout(function () { requestAllMeasurement() }, 1000)
-    event.preventDefault()
-  }
-
-  render () {
-    const { item } = this.props
+  handleSubmit(event) {
     const {
-      loggedInStatus, match, measurements
-    } = this.props
+      user, item, measureCreate, requestAllMeasurement,
+    } = this.props;
+    const { numberOfBooks } = this.state;
+    const userId = user.id;
+    const itemId = item.id;
+    measureCreate(userId, itemId, numberOfBooks);
+    const input = document.querySelector('#numberOfBooks');
+    input.value = '';
+    setTimeout(() => { requestAllMeasurement(); }, 1500);
+    event.preventDefault();
+  }
+
+  render() {
+    const { item } = this.props;
+    const {
+      loggedInStatus, match, measurements,
+    } = this.props;
     if (item && loggedInStatus === 'LOGGED_IN') {
       return (
-        <div className='container mt-5'>
-          <div className='row mt-5'>
-            <div className='col-md-4'>
-              <div className='card text-center'>
-                <img className='card-img-top' src={item.photo} alt='Card cap' />
+        <div className="container mt-5">
+          <div className="row mt-5">
+            <div className="col-md-4">
+              <div className="card text-center">
+                <img className="card-img-top" src={item.photo} alt="Card cap" />
               </div>
             </div>
-            <div className='col-md-8'>
-              <div className='card text-center'>
+            <div className="col-md-8">
+              <div className="card text-center">
                 <h3>Enter Number to track Progress</h3>
                 <form onSubmit={this.handleSubmit}>
-                  <fieldset className='form-group'>
+                  <fieldset className="form-group">
                     <label>Name</label>
                     <input
                       onChange={this.handleChange}
-                      type='text'
-                      className='form-control igning-link'
-                      id='numberOfBooks'
-                      placeholder='Enter Number'
+                      type="text"
+                      className="form-control igning-link"
+                      id="numberOfBooks"
+                      placeholder="Enter Number"
                       required
                     />
                   </fieldset>
-                  <button type='submit' className='btn btn-primary'>Submit</button>
+                  <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
               </div>
             </div>
@@ -78,9 +80,9 @@ class ShowSingleItem extends React.Component {
             />
           </div>
         </div>
-      )
+      );
     }
-    return (<div />)
+    return (<div />);
   }
 }
 
@@ -91,25 +93,25 @@ ShowSingleItem.propTypes = {
   user: Proptypes.instanceOf(Object),
   item: Proptypes.instanceOf(Object),
   measurements: Proptypes.instanceOf(Array).isRequired,
-  measureCreate: Proptypes.func.isRequired
+  measureCreate: Proptypes.func.isRequired,
 
-}
+};
 
 const mapStateToProps = state => ({
   item: state.item.item,
   user: state.auth.user,
   measurements: state.measure.measurements,
-  loggedInStatus: state.auth.signInStatus
-})
+  loggedInStatus: state.auth.signInStatus,
+});
 
 const mapDispatchToProps = dispatch => ({
   measureCreate: (userId, postId, measurement) => dispatch(measurementCreateRequest(
     userId,
     postId,
-    measurement
+    measurement,
   )),
   singleItemRequest: params => dispatch(singleItemRequest(params)),
-  requestAllMeasurement: () => dispatch(allMeasurementRequest())
-})
+  requestAllMeasurement: () => dispatch(allMeasurementRequest()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowSingleItem)
+export default connect(mapStateToProps, mapDispatchToProps)(ShowSingleItem);
