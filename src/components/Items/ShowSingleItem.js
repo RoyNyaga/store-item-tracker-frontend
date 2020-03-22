@@ -86,8 +86,8 @@ ShowSingleItem.propTypes = {
   loggedInStatus: Proptypes.string.isRequired,
   singleItemRequest: Proptypes.func.isRequired,
   requestAllMeasurement: Proptypes.func.isRequired,
-  user: Proptypes.instanceOf(Object).isRequired,
-  item: Proptypes.instanceOf(Object).isRequired,
+  user: Proptypes.string.isRequired,
+  item: Proptypes.instanceOf(Object),
   measurements: Proptypes.instanceOf(Array).isRequired,
   measureCreate: Proptypes.func.isRequired,
 
