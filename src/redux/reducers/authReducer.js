@@ -3,7 +3,7 @@ import {
 } from '../actions/authActions';
 
 const initailState = {
-  user: '',
+  user: {},
   message: '',
   signInStatus: 'NOT_LOGGED_IN',
 };
@@ -35,7 +35,7 @@ const authReducer = (state = initailState, action) => {
     case LOG_OUT:
       return {
         signInStatus: 'NOT_LOGGED_IN',
-        user: '',
+        user: {},
         message: 'logged out successfully',
       };
     default:

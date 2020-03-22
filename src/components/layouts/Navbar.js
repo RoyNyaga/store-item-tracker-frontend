@@ -6,7 +6,6 @@ import SignedOutLinks from './SignedOutLinks';
 
 const Navbar = props => {
   const { loggedInStatus } = props;
-  console.log(`${loggedInStatus}, this is logs`);
   if (loggedInStatus === 'LOGGED_IN') {
     return (
       <nav className="navbar navbar-expand-md fixed-top mb-5">
@@ -38,10 +37,6 @@ const Navbar = props => {
 Navbar.propTypes = {
   loggedInStatus: Proptypes.string.isRequired,
 };
-
-// Navbar.defaultProps = {
-//   loggedInStatus: ''
-// }
 
 const mapStateToProps = state => ({
   loggedInStatus: state.auth.signInStatus,
