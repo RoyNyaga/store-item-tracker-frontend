@@ -12,7 +12,8 @@ This is the front-end part of a Rails backend [application](https://github.com/R
 
 ### Photo
 <img src="https://res.cloudinary.com/it-s-tech/image/upload/v1584549520/Screenshot_from_2020-03-18_17-37-04_uy47hq.png">
+
 ## Author
-* [Roy Nyaga](https://github.com/RoyNyaga/)
+* [Roy Nyaga](https://github.com/RoyNyaga/).
 * nyagaandreroy@gmail.com.
-* +237671172775
+* +237671172775.
