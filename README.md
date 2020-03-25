@@ -7,6 +7,10 @@ This is the front-end part of a Rails backend [application](https://github.com/R
 * Redux
 * Bootstrap
 * Jest
+## Installation
+* Clone the application in your computer using the command git@github.com:RoyNyaga/store-item-tracker-frontend.git.
+* Open the cloned folder in your terminal and install packages using npm install.
+* Run the development server using the command npm start and the api will be ready for your request.
 
 ### [Live Demo](https://store-item-tracker-frontend.herokuapp.com/)
 
