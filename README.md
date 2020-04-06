@@ -11,7 +11,7 @@ Click [here](https://store-item-tracker-frontend.herokuapp.com/) to see a live v
 ### Demo Video
 Click [here](https://res.cloudinary.com/it-s-tech/video/upload/v1586198645/store-item-tracker_afbtar.mp4) to watch a demo video.
 
-### Technologies Usage.
+### Technologies Used.
 * ES6
 * React
 * Redux
