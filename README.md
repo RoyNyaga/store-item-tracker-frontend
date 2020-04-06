@@ -1,23 +1,56 @@
 # Store Item Tracker
 
-This is the front-end part of a Rails backend [application](https://github.com/RoyNyaga/microverse-store-items-tracking) built using Ruby on Rails. It was built using React/Redux and ES6. It enables users to create an account, login to have access to trackable items and to track items based on quantity and timestamp.
-## Technologies used.
+<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1584549520/Screenshot_from_2020-03-18_17-37-04_uy47hq.png">
+
+### About
+This is the front-end part of a Rails backend [application](https://github.com/RoyNyaga/microverse-store-items-tracking) built using Ruby on Rails. It was built using React/Redux and ES6. It enables users to create an account, log in to have access to trackable items and to track items based on quantity and timestamp.
+
+### Live Demo
+Click [here](https://store-item-tracker-frontend.herokuapp.com/) to see a live version.
+
+### Technologies Used.
 * ES6
 * React
 * Redux
+* Redux-persist
+* Axios
 * Bootstrap
 * Jest
-## Installation
-* Clone the application in your computer using the command git@github.com:RoyNyaga/store-item-tracker-frontend.git.
-* Open the cloned folder in your terminal and install packages using npm install.
-* Run the development server using the command npm start and the api will be ready for your request.
 
-### [Live Demo](https://store-item-tracker-frontend.herokuapp.com/)
+### Installation And Usage
+* Make sure you have node.js installed on your computer if not go ahead and install it.
+* Clone the application in your computer using the command <br>
+```git@github.com:RoyNyaga/store-item-tracker-frontend.git```
+* Open the cloned folder in your terminal and install packages using <br>
+```npm install```
+* Run the development server using the command npm start and the API will be ready for your request.
 
-### Photo
-<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1584549520/Screenshot_from_2020-03-18_17-37-04_uy47hq.png">
+### Testing
+* Cd into the project directory and run the testing suite with the following command: <br>
+```bundle exec rspec```
 
-## Author
-* [Roy Nyaga](https://github.com/RoyNyaga/).
-* nyagaandreroy@gmail.com.
-* +237671172775.
+### Deployment On Heroku
+* Create a [Heroku](https://dashboard.heroku.com/) account.
+* Install [Heroku CLI](https://dashboard.heroku.com/) on your computer.
+* Login to Heroku from your terminal using the command: <br>
+  ```heroku login```
+* Enter your credentials as the above command will prompt you.
+* Cd to the root folder of your project.
+* Create a Heroku app using the command: <br> 
+  ```heroku create <name-of-you-app> ```
+* Commit your work and push to github. <br> 
+```
+  git add .
+  git commit -m"commit-message"
+  git push origin master
+```
+* Deploy your work to Heroku using the command: <br>
+``` git push Heroku master```
+* To see your hosted application on the browser, type the command: <br>
+``` heroku open```
+
+### Author
+:bust_in_silhouette: [Nyaga Andre Roy](https://github.com/RoyNyaga)
+* Gihub: [RoyNyaga](https://github.com/RoyNyaga)
+* Email: [nyagaandreroy@gmail.com](mailto:nyagaandreroy@gmail.com)
+* Linkedin: [Roy Nyaga](https://www.linkedin.com/in/roy-nyaga-andre/)
