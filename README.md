@@ -1,14 +1,15 @@
 # Store Item Tracker
 
-<video controls autoplay>
-  <source src="https://res.cloudinary.com/it-s-tech/video/upload/v1586198645/store-item-tracker_afbtar.mp4" type="video/mp4">
-</video>
+<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1586199098/Screenshot_from_2020-04-06_19-49-22_jmudim.png">
 
 ### About
 This is the front-end part of a Rails backend [application](https://github.com/RoyNyaga/microverse-store-items-tracking) built using Ruby on Rails. It was built using React/Redux and ES6. It enables users to create an account, log in to have access to trackable items and to track items based on quantity and timestamp.
 
 ### Live Demo
 Click [here](https://store-item-tracker-frontend.herokuapp.com/) to see a live version.
+
+### Demo Video
+Click [here](https://res.cloudinary.com/it-s-tech/video/upload/v1586198645/store-item-tracker_afbtar.mp4) to watch a demo video.
 
 ### Technologies Used.
 * ES6
