@@ -52,6 +52,10 @@ Click [here](https://res.cloudinary.com/it-s-tech/video/upload/v1586198645/store
 * To see your hosted application on the browser, type the command: <br>
 ``` heroku open```
 
+### Feature Features
+* Allowing users to only see the measurement they created.
+* Allowing users to be able to create items to be tracked.
+
 ### Author
 :bust_in_silhouette: [Nyaga Andre Roy](https://github.com/RoyNyaga)
 * Gihub: [RoyNyaga](https://github.com/RoyNyaga)
